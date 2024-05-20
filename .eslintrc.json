@@ -1,0 +1,52 @@
+{
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false,
+      "presets": ["@babel/preset-env"]
+    }
+  },
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "plugins": ["prettier", "no-only-tests"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:playwright/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "arrowParens": "avoid",
+        "semi": true,
+        "endOfLine": "auto",
+        "tabWidth": 2,
+        "trailingComma": "none",
+        "bracketSpacing": false,
+        "proseWrap": "always"
+      }
+    ],
+    "no-only-tests/no-only-tests": [
+      "error",
+      {
+        "block": [
+          "it",
+          "test",
+          "describe",
+          "context"
+        ],
+        "focus": [
+          "only",
+          "focus"
+        ]
+      }
+    ],
+    "indent": [2, 2, {"SwitchCase": 1, "VariableDeclarator": 2}]
+  }
+}
